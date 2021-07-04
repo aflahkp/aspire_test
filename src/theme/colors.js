@@ -1,0 +1,9 @@
+export const primary = '#01D167';
+export const dark = '#0C365A';
+export const accent = '#fff';
+export const white = '#fff';
+export const screenBackground = '#fff';
+export const inactive = '#DDDDDD';
+export const textColorLight = '#fff';
+export const textColorBlack = '#000';
+export const textColorGray = '#aaa';
