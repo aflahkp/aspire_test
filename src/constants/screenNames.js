@@ -1,5 +1,5 @@
 export default {
-  mainScreen: 'DebitCardScreen',
+  mainScreen: 'Main',
 
   //BottomTabNavigationScreens
   homeScreen: 'HomeScreen',
@@ -7,4 +7,6 @@ export default {
   paymentsScreen: 'PaymentsScreen',
   creditScreen: 'CreditScreen',
   profileScreen: 'ProfileScreen',
+
+  spendingLimitScreen: 'SpendingLimitScreen',
 };

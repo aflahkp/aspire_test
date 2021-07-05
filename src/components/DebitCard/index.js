@@ -7,21 +7,28 @@ import {aspire, visaLogo, eye} from '../../assets/images';
 
 const DebitCard = ({
   user_name = 'Mark Henry',
-  card_number = '',
+  card_number = '5647341124132020',
   expiry_date = '12/20',
+  cvv = '456',
 }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
     <View>
-      <View style={styles.visibilityContainer}>
+      <Pressable
+        onPress={() => {
+          setIsVisible(visible => !visible);
+        }}
+        style={styles.visibilityContainer}>
         <Image
           source={eye}
           tintColor={Theme.Colors.primary}
           style={styles.eyeIcon}
         />
-        <Text style={styles.hideCardNumber}>{strings.hideCardNumber}</Text>
-      </View>
+        <Text style={styles.hideCardNumber}>
+          {isVisible ? strings.hideCardNumber : strings.showCardNumber}
+        </Text>
+      </Pressable>
       <View style={styles.card}>
         <View style={styles.logoContainer}>
           <Image
@@ -39,13 +46,7 @@ const DebitCard = ({
           )
             .match(/.{1,4}/g)
             .map(number => (
-              <Text
-                style={[
-                  styles.cardNumber,
-                  (isVisible && card_number) || styles.hidden,
-                ]}>
-                {number}
-              </Text>
+              <Text style={styles.cardNumber}>{number}</Text>
             ))}
         </View>
 
@@ -56,7 +57,7 @@ const DebitCard = ({
           </View>
           <View style={styles.cvvRow}>
             <Text style={styles.labelText}>{strings.cvv}:</Text>
-            <Text style={styles.dateText}> {expiry_date}</Text>
+            <Text style={styles.dateText}> {cvv}</Text>
           </View>
         </View>
         <View style={styles.cardLogoContainer}>

@@ -3,7 +3,7 @@ import Theme from '../../theme';
 
 const styles = StyleSheet.create({
   root: {flex: 1, backgroundColor: Theme.Colors.screenBackground},
-  scrollView: {marginTop: -90},
+  scrollView: {marginTop: -90, zIndex: 10},
   cardContainer: {paddingHorizontal: 24},
   curve: {
     width: '100%',
@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 24,
     zIndex: -1,
   },
+  progressStyle: {marginTop: 24},
 });
 
 export default styles;

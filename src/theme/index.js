@@ -11,6 +11,7 @@ const defaultTheme = {
     textColorGray: Colors.textColorGray,
     textColorBlack: Colors.textColorBlack,
     white: Colors.white,
+    light: Colors.light,
   },
 };
 

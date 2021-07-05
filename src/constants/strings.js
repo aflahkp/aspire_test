@@ -11,4 +11,10 @@ export default {
   thru: 'Thru',
   cvv: 'CVV',
   hideCardNumber: 'Hide card number',
+  showCardNumber: 'Show card number',
+  spendingLimit: 'Spending Limit',
+  setWeeklyDebitLimit: 'Set a weekly debit card spending limit',
+  weekDefenition: 'Here weekly means the last 7 days - not the calendar week',
+  save: 'Save',
+  debitCardSpendingLimt: 'Debit card spending limit',
 };

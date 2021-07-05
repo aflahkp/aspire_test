@@ -9,6 +9,8 @@ import insight from './insight/insight.png';
 import limit from './spendLimit/limit.png';
 import newCard from './newCard/newCard.png';
 import deactivate from './deactivate/deactivate.png';
+import backIcon from './back/back.png';
+import meter from './meter/meter.png';
 
 export {
   aspire,
@@ -22,4 +24,6 @@ export {
   limit,
   newCard,
   deactivate,
+  backIcon,
+  meter,
 };

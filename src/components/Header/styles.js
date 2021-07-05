@@ -5,12 +5,14 @@ import * as Fonts from '../../theme/fonts';
 const styles = StyleSheet.create({
   root: {
     backgroundColor: Theme.Colors.dark,
+    zIndex: -2,
   },
   container: {
     backgroundColor: Theme.Colors.dark,
     paddingHorizontal: 24,
-    paddingBottom: 120,
+    paddingBottom: 64,
   },
+  extraPadding: {paddingBottom: 120},
   availableBalance: {
     fontFamily: Fonts.AvenirNextRegular,
     fontSize: 14,
@@ -43,7 +45,20 @@ const styles = StyleSheet.create({
     color: Theme.Colors.textColorLight,
     marginTop: 32,
   },
-  balanceContainer: {flexDirection: 'row', marginTop: 15,},
+  balanceContainer: {flexDirection: 'row', marginTop: 15},
+  logo: {
+    width: 25,
+    height: 25,
+    position: 'absolute',
+    top: 16,
+    right: 24,
+    zIndex: 1,
+  },
+  back: {marginHorizontal: 24, marginTop: 16},
+  backIcon: {
+    width: 20,
+    height: 20,
+  },
 });
 
 export default styles;
