@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingBottom: 64,
   },
-  extraPadding: {paddingBottom: 120},
+  lessPadding: {paddingBottom: 10},
   availableBalance: {
     fontFamily: Fonts.AvenirNextRegular,
     fontSize: 14,

@@ -26,42 +26,45 @@ const DebitCardScreen = ({navigation: {navigate}}) => {
       <StatusBar barStyle="light-content" backgroundColor={Theme.Colors.dark} />
       <Header showBalance title={strings.debitCard} />
       <ScrollView style={styles.scrollView}>
+        <View style={styles.scrollPadding} />
         <View>
           <View style={styles.cardContainer}>
             <DebitCard />
           </View>
           <View style={styles.curve} />
         </View>
-        <SpendingProgress style={styles.progressStyle} />
-        <MenuRow
-          icon={insight}
-          title="Top-up account"
-          subTitle="Deposit money to your account to use with card"
-        />
-        <MenuRow
-          toggle
-          toggleValue={toggleValue}
-          onToggle={onToggle}
-          icon={limit}
-          title="Weekly spending limit"
-          subTitle="Your weekly spending limit is S$ 5,000"
-        />
-        <MenuRow
-          toggle
-          icon={limit}
-          title="Freeze"
-          subTitle="Your debit card is currently active"
-        />
-        <MenuRow
-          icon={newCard}
-          title="Get a new card"
-          subTitle="This deactivates your current debit card"
-        />
-        <MenuRow
-          icon={deactivate}
-          title="Deactivated cards"
-          subTitle="Your previously deactivated cards"
-        />
+        <View style={styles.menuContainer}>
+          <SpendingProgress style={styles.progressStyle} />
+          <MenuRow
+            icon={insight}
+            title="Top-up account"
+            subTitle="Deposit money to your account to use with card"
+          />
+          <MenuRow
+            toggle
+            toggleValue={toggleValue}
+            onToggle={onToggle}
+            icon={limit}
+            title="Weekly spending limit"
+            subTitle="Your weekly spending limit is S$ 5,000"
+          />
+          <MenuRow
+            toggle
+            icon={limit}
+            title="Freeze"
+            subTitle="Your debit card is currently active"
+          />
+          <MenuRow
+            icon={newCard}
+            title="Get a new card"
+            subTitle="This deactivates your current debit card"
+          />
+          <MenuRow
+            icon={deactivate}
+            title="Deactivated cards"
+            subTitle="Your previously deactivated cards"
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

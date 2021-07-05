@@ -23,7 +23,7 @@ const Header = ({
         </Pressable>
       )}
       <Image source={aspire} style={styles.logo} />
-      <View style={[styles.container, showBalance && styles.extraPadding]}>
+      <View style={[styles.container, showBalance && styles.lessPadding]}>
         <Text style={styles.title}>{title}</Text>
 
         {showBalance && (

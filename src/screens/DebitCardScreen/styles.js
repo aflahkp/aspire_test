@@ -2,8 +2,15 @@ import {StyleSheet} from 'react-native';
 import Theme from '../../theme';
 
 const styles = StyleSheet.create({
-  root: {flex: 1, backgroundColor: Theme.Colors.screenBackground},
-  scrollView: {marginTop: -90, zIndex: 10},
+  root: {flex: 1, backgroundColor: Theme.Colors.dark},
+  scrollView: {
+    marginTop: -90,
+    zIndex: 10,
+  },
+  scrollPadding: {height: 100},
+  menuContainer: {
+    backgroundColor: Theme.Colors.screenBackground,
+  },
   cardContainer: {paddingHorizontal: 24},
   curve: {
     width: '100%',
