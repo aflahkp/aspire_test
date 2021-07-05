@@ -3,3 +3,5 @@ The goal is to create an application which helps the user to maintain his/her de
 
 # Screenshots
 [![Screenshot-20210705-081021.jpg](https://i.postimg.cc/rFPJzJkT/Screenshot-20210705-081021.jpg)](https://postimg.cc/qz2n52qD)
+
+[![Screenshot-20210705-081434.jpg](https://i.postimg.cc/vmLf77pc/Screenshot-20210705-081434.jpg)](https://postimg.cc/GBt4dD3C)
