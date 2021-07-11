@@ -21,7 +21,14 @@ const SpendingProgress = ({amountSpent = 0, limitAmount = 0, style}) => {
         <Text style={styles.limitAmount}>${limitAmount}</Text>
       </View>
       <View style={styles.progressContainer}>
-        <View style={[styles.currentProgress, {width: `${getProgress()}%`}]} />
+        {!!amountSpent && (
+          <>
+            <View
+              style={[styles.currentProgress, {width: `${getProgress()}%`}]}
+            />
+            <View style={styles.currentProgressTip} />
+          </>
+        )}
       </View>
     </View>
   );
