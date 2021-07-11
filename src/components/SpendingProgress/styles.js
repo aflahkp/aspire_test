@@ -9,16 +9,16 @@ const styles = StyleSheet.create({
   },
   textContainer: {flexDirection: 'row', alignItems: 'center'},
   title: {
-    fontFamily: Fonts.AvenirNextDemi,
+    fontFamily: Fonts.AvenirNextMedium,
     fontSize: 14,
     lineHeight: 19,
     color: Theme.Colors.textColorBlack,
     flex: 1,
   },
   limitAmount: {
-    fontFamily: Fonts.AvenirNextRegular,
+    fontFamily: Fonts.AvenirNextMedium,
     fontSize: 13,
-    color: Theme.Colors.textColorGray,
+    color: Theme.Colors.textColorLightGray,
   },
   amountSpent: {
     fontFamily: Fonts.AvenirNextDemi,
@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     backgroundColor: Theme.Colors.light,
   },
   currentProgress: {
-    width: '50%',
     height: 0,
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,

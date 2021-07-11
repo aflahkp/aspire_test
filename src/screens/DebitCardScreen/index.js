@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StatusBar, ScrollView} from 'react-native';
 import styles from './styles';
 import Theme from '../../theme';
@@ -8,33 +8,50 @@ import DebitCard from '../../components/DebitCard';
 import MenuRow from '../../components/MenuRow';
 import SpendingProgress from '../../components/SpendingProgress';
 import {insight, limit, deactivate, newCard} from '../../assets/images';
-import screenNames from '../../constants/screenNames';
 import strings from '../../constants/strings';
+import {getAccountAction, setWeeklyLimitEnabledAction} from '../../actions';
+import {connect} from 'react-redux';
+import {getBalance, onToggle} from './helpers';
 
-const DebitCardScreen = ({navigation: {navigate}}) => {
-  const [toggleValue, setToggleValue] = useState(false);
+const DebitCardScreen = ({
+  navigation: {navigate},
+  getAccount,
+  spending_limit,
+  spent_amount,
+  username,
+  card_no,
+  card_expiry,
+  card_cvv,
+  weekly_limit_enabled = false,
+  toggleWeeklyLimitEnabled,
+}) => {
 
-  const onToggle = value => {
-    setToggleValue(value);
-    if (value) {
-      navigate(screenNames.spendingLimitScreen);
-    }
-  };
+  useEffect(() => {
+    getAccount();
+  }, []);
 
   return (
     <SafeAreaView style={styles.root}>
       <StatusBar barStyle="light-content" backgroundColor={Theme.Colors.dark} />
-      <Header showBalance title={strings.debitCard} />
+      <Header
+        showBalance
+        balance={getBalance(spent_amount, spending_limit)}
+        title={strings.debitCard}
+      />
       <ScrollView style={styles.scrollView}>
         <View style={styles.scrollPadding} />
         <View>
           <View style={styles.cardContainer}>
-            <DebitCard />
+            <DebitCard {...{username, card_no, card_expiry, card_cvv}} />
           </View>
           <View style={styles.curve} />
         </View>
         <View style={styles.menuContainer}>
-          <SpendingProgress style={styles.progressStyle} />
+          <SpendingProgress
+            amountSpent={spent_amount}
+            limitAmount={spending_limit}
+            style={styles.progressStyle}
+          />
           <MenuRow
             icon={insight}
             title="Top-up account"
@@ -42,11 +59,11 @@ const DebitCardScreen = ({navigation: {navigate}}) => {
           />
           <MenuRow
             toggle
-            toggleValue={toggleValue}
-            onToggle={onToggle}
+            toggleValue={weekly_limit_enabled}
+            onToggle={onToggle({toggleWeeklyLimitEnabled, navigate})}
             icon={limit}
             title="Weekly spending limit"
-            subTitle="Your weekly spending limit is S$ 5,000"
+            subTitle={`Your weekly spending limit is S$ ${spending_limit}`}
           />
           <MenuRow
             toggle
@@ -65,9 +82,36 @@ const DebitCardScreen = ({navigation: {navigate}}) => {
             subTitle="Your previously deactivated cards"
           />
         </View>
+        <View style={styles.bottomSpacing} />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default DebitCardScreen;
+const mapStateToProps = ({
+  username,
+  card_no,
+  card_expiry,
+  card_cvv,
+  spent_amount,
+  spending_limit,
+  weekly_limit_enabled,
+}) => ({
+  username,
+  card_no,
+  card_expiry,
+  card_cvv,
+  spent_amount,
+  spending_limit,
+  weekly_limit_enabled,
+});
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getAccount: () => dispatch(getAccountAction()),
+    toggleWeeklyLimitEnabled: enabled =>
+      dispatch(setWeeklyLimitEnabledAction(enabled)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DebitCardScreen);

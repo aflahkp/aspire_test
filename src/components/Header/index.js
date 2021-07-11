@@ -9,12 +9,13 @@ const Header = ({
   showBalance = false,
   title = '',
   back = false,
-  balance = '3,000',
+  balance = '',
+  goBack,
 }) => {
   return (
     <View style={styles.root}>
       {back && (
-        <Pressable style={styles.back}>
+        <Pressable onPress={goBack} style={styles.back}>
           <Image
             source={backIcon}
             style={styles.backIcon}

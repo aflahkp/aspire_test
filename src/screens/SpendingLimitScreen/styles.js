@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     color: Theme.Colors.textColorBlack,
   },
   subTitle: {
-    fontFamily: Fonts.AvenirNextDemi,
+    fontFamily: Fonts.AvenirNextMedium,
     fontSize: 14,
     color: Theme.Colors.textColorBlack,
     marginStart: 12,
@@ -73,6 +73,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 4,
+  },
+  highlighted: {
+    borderWidth: 0.5,
+    borderColor: Theme.Colors.primary,
   },
   buttonStyle: {marginBottom: 24},
 });

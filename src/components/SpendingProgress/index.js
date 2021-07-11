@@ -3,11 +3,15 @@ import {Text, View, Image, Switch} from 'react-native';
 import strings from '../../constants/strings';
 import styles from './styles';
 
-const SpendingProgress = ({
-  amountSpent = '345',
-  limitAmount = '5,000',
-  style,
-}) => {
+const SpendingProgress = ({amountSpent = 0, limitAmount = 0, style}) => {
+  const getProgress = () => {
+    if (limitAmount === 0) {
+      return 0;
+    }
+
+    return (parseInt(amountSpent, 10) / parseInt(limitAmount, 10)) * 100;
+  };
+
   return (
     <View style={[styles.container, style]}>
       <View style={styles.textContainer}>
@@ -17,7 +21,7 @@ const SpendingProgress = ({
         <Text style={styles.limitAmount}>${limitAmount}</Text>
       </View>
       <View style={styles.progressContainer}>
-        <View style={styles.currentProgress} />
+        <View style={[styles.currentProgress, {width: `${getProgress()}%`}]} />
       </View>
     </View>
   );

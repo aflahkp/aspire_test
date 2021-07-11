@@ -5,12 +5,7 @@ import strings from '../../constants/strings';
 import Theme from '../../theme';
 import {aspire, visaLogo, eye} from '../../assets/images';
 
-const DebitCard = ({
-  user_name = 'Mark Henry',
-  card_number = '5647341124132020',
-  expiry_date = '12/20',
-  cvv = '456',
-}) => {
+const DebitCard = ({username, card_no, card_expiry, card_cvv}) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -38,26 +33,29 @@ const DebitCard = ({
           />
           <Text style={styles.aspireText}>{strings.aspire}</Text>
         </View>
-        <Text style={styles.userName}>{user_name}</Text>
+        <Text style={styles.userName}>{username}</Text>
         <View style={styles.cardNumberContainer}>
-          {(
-            (isVisible && card_number) ||
-            new Array(16).fill(strings.hiddenChar).join('')
-          )
-            .match(/.{1,4}/g)
-            .map(number => (
-              <Text style={styles.cardNumber}>{number}</Text>
-            ))}
+          {isVisible && card_no
+            ? card_no.match(/.{1,4}/g).map(number => (
+                <Text key={`${number}`} style={styles.cardNumber}>
+                  {number}
+                </Text>
+              ))
+            : new Array(16)
+                .fill(strings.hiddenChar)
+                .join('')
+                .match(/.{1,4}/g)
+                .map(number => <Text style={styles.cardNumber}>{number}</Text>)}
         </View>
 
         <View style={styles.cardFooterRow}>
           <View style={styles.dateRow}>
             <Text style={styles.labelText}>{strings.thru}:</Text>
-            <Text style={styles.dateText}> {expiry_date}</Text>
+            <Text style={styles.dateText}> {card_expiry}</Text>
           </View>
           <View style={styles.cvvRow}>
             <Text style={styles.labelText}>{strings.cvv}:</Text>
-            <Text style={styles.dateText}> {cvv}</Text>
+            <Text style={styles.dateText}> {card_cvv}</Text>
           </View>
         </View>
         <View style={styles.cardLogoContainer}>

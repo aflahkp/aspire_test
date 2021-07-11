@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
     marginVertical: 16,
     alignItems: 'flex-start',
   },
-  textContainer: {marginStart: 12, flex:1},
+  textContainer: {marginStart: 12, flex: 1},
   title: {
-    fontFamily: Fonts.AvenirNextDemi,
+    fontFamily: Fonts.AvenirNextMedium,
     fontSize: 14,
-    lineHeight: 19,
+    height: 19,
     color: Theme.Colors.textColorBlack,
   },
   subTitle: {
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     color: Theme.Colors.textColorGray,
     marginTop: 2,
   },
+  icon: {width: 32, height: 32},
 });
 
 export default styles;

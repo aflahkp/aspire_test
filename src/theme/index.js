@@ -9,9 +9,11 @@ const defaultTheme = {
     inactive: Colors.inactive,
     textColorLight: Colors.textColorLight,
     textColorGray: Colors.textColorGray,
+    textColorLightGray: Colors.textColorLightGray,
     textColorBlack: Colors.textColorBlack,
     white: Colors.white,
     light: Colors.light,
+    switchDisabled: Colors.switchDisabled,
   },
 };
 

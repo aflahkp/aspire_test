@@ -1,8 +1,7 @@
 export const onSave =
-  ({goBack, limit}) =>
+  ({saveSpendingLimit, selectedSpendingLimit}) =>
   () => {
-    //TODO Save limit by calling api
-
-    //Navigate Back
-    goBack();
+    if (selectedSpendingLimit) {
+      saveSpendingLimit(selectedSpendingLimit);
+    }
   };

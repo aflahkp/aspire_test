@@ -23,6 +23,12 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   progressStyle: {marginTop: 24},
+  bottomSpacing: {
+    height: 24,
+    width: '100%',
+    marginTop: -1,
+    backgroundColor: Theme.Colors.screenBackground,
+  },
 });
 
 export default styles;
