@@ -21,8 +21,6 @@ const SpendingLimitScreen = ({
   getSpendingLimitOptions,
   saveSpendingLimit,
 }) => {
-  console.log(spending_limits);
-  
   const [selectedSpendingLimit, setSelectedSpendingLimit] =
     useState(spending_limit);
 

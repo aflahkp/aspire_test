@@ -1,13 +1,21 @@
 import {StyleSheet} from 'react-native';
 import Theme from '../../theme';
+const headerHeight = 160;
 
 const styles = StyleSheet.create({
   root: {flex: 1, backgroundColor: Theme.Colors.dark},
   scrollView: {
-    marginTop: -90,
+    flex: 1,
     zIndex: 10,
+    backgroundColor: 'transparent',
   },
-  scrollPadding: {height: 100},
+  absoluteView: {
+    flex: 1,
+    position: 'absolute',
+    width: '100%',
+    height: headerHeight,
+  },
+  scrollPadding: {height: headerHeight},
   menuContainer: {
     backgroundColor: Theme.Colors.screenBackground,
   },

@@ -25,7 +25,6 @@ const DebitCardScreen = ({
   weekly_limit_enabled = false,
   toggleWeeklyLimitEnabled,
 }) => {
-
   useEffect(() => {
     getAccount();
   }, []);
@@ -33,11 +32,13 @@ const DebitCardScreen = ({
   return (
     <SafeAreaView style={styles.root}>
       <StatusBar barStyle="light-content" backgroundColor={Theme.Colors.dark} />
-      <Header
-        showBalance
-        balance={getBalance(spent_amount, spending_limit)}
-        title={strings.debitCard}
-      />
+      <View style={styles.absoluteView}>
+        <Header
+          showBalance
+          balance={getBalance(spent_amount, spending_limit)}
+          title={strings.debitCard}
+        />
+      </View>
       <ScrollView style={styles.scrollView}>
         <View style={styles.scrollPadding} />
         <View>
